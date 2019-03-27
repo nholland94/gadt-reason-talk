@@ -1,0 +1,38 @@
+bs_package_flags = -bs-package-map type-witness-adt
+src_root_dir = /home/nathan/talks/gadt_reason/examples/type-witness-adt
+bsc = /home/nathan/.npm-global/lib/node_modules/bs-platform/lib/bsc.exe
+bsdep = /home/nathan/.npm-global/lib/node_modules/bs-platform/lib/bsb_helper.exe
+warnings = -w -30-40+6+7+27+32..39+44+45+101
+bsc_flags = -bs-suffix -nostdlib -I '/home/nathan/talks/gadt_reason/node_modules/bs-platform/lib/ocaml' -color always
+ppx_flags = 
+bs_package_includes = 
+bs_package_dev_includes = 
+namespace = -ns TypeWitnessAdt
+bsb_dir_group = 0
+refmt = /home/nathan/.npm-global/lib/node_modules/bs-platform/lib/refmt.exe
+reason_react_jsx = 
+refmt_flags = --print binary
+bsc_lib_includes = -I . -I .
+rule build_ast_and_module_sets_from_re
+  command = ${bsc} -pp "${refmt} ${refmt_flags}" ${reason_react_jsx}  ${ppx_flags} ${warnings} ${bsc_flags} -c -o ${out} -bs-syntax-only -bs-binary-ast -impl ${in}
+  description = [34mBuilding[39m [2m${out}[22m
+build ./Index.mlast : build_ast_and_module_sets_from_re $src_root_dir/./Index.re
+rule build_deps
+  command = ${bsdep} ${namespace} -g ${bsb_dir_group} -MD ${in}
+  restat = 1
+  description = [34mBuilding[39m [2m${out}[22m
+build ./Index.mlast.d : build_deps ./Index.mlast
+rule build_cmj_cmi
+  command = ${bsc} ${bs_package_flags} -bs-assume-no-mli -bs-no-builtin-ppx-ml -bs-no-implicit-include ${bs_package_includes} ${bsc_lib_includes} ${bsc_extra_includes} ${warnings} ${bsc_flags} -o ${out} -c  ${in} $postbuild
+  depfile = ${in}.d
+  restat = 1
+  description = [34mBuilding[39m [2m${out}[22m
+build ./Index-TypeWitnessAdt.cmj |  $src_root_dir/./Index.bs.js ./Index-TypeWitnessAdt.cmi : build_cmj_cmi ./Index.mlast
+  bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
+  bs_package_flags = $bs_package_flags  -bs-package-output commonjs:.
+rule build_package
+  command = ${bsc} -w -49 -no-alias-deps -c ${in}
+  restat = 1
+  description = [34mBuilding[39m [2m${out}[22m
+build TypeWitnessAdt.cmi : build_package TypeWitnessAdt.mlmap
+build build.ninja : phony  ||  TypeWitnessAdt.cmi ./Index.mlast.d

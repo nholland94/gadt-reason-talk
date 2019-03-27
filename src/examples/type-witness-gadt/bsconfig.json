@@ -1,0 +1,15 @@
+{
+  "name": "type-witness-gadt",
+  "sources": {
+    "dir" : ".",
+    "subdirs" : false
+  },
+  "package-specs": [{
+    "module": "commonjs",
+    "in-source": true
+  }],
+  "suffix": ".bs.js",
+  "namespace": true,
+  "bs-dependencies": [],
+  "refmt": 3
+}

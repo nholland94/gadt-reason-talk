@@ -1,0 +1,22 @@
+# ninja log v5
+0	12	1553493931	Index-DynamicDispatch.cmi	56a568538d7aaa12
+0	12	1553493931	/home/nathan/talks/gadt_reason/examples/dynamic-dispatch/Index.bs.js	56a568538d7aaa12
+0	7	1553493931	DynamicDispatch.cmi	bfeb49e071c5ce2d
+0	12	1553493931	Index-DynamicDispatch.cmj	56a568538d7aaa12
+13	17	1553493931	Index.mlast.d	3be016291d470977
+0	13	1553493931	Index.mlast	66463d60aaad3af2
+0	7	1553494053	DynamicDispatch.cmi	bfeb49e071c5ce2d
+0	14	1553494053	Index.mlast	66463d60aaad3af2
+14	17	1553494053	Index.mlast.d	3be016291d470977
+0	30	1553494053	Index-DynamicDispatch.cmj	56a568538d7aaa12
+0	30	1553494053	/home/nathan/talks/gadt_reason/examples/dynamic-dispatch/Index.bs.js	56a568538d7aaa12
+0	30	1553494053	Index-DynamicDispatch.cmi	56a568538d7aaa12
+0	8	1553494078	DynamicDispatch.cmi	bfeb49e071c5ce2d
+0	14	1553494078	Index.mlast	66463d60aaad3af2
+14	17	1553494078	Index.mlast.d	3be016291d470977
+1	7	1553494098	DynamicDispatch.cmi	bfeb49e071c5ce2d
+0	13	1553494098	Index.mlast	66463d60aaad3af2
+13	16	1553494098	Index.mlast.d	3be016291d470977
+1	13	1553494098	Index-DynamicDispatch.cmj	56a568538d7aaa12
+1	13	1553494098	/home/nathan/talks/gadt_reason/examples/dynamic-dispatch/Index.bs.js	56a568538d7aaa12
+1	13	1553494098	Index-DynamicDispatch.cmi	56a568538d7aaa12
